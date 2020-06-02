@@ -62,7 +62,7 @@ namespace TicTacToe
             switch (choice)
             {
                 case 1:
-                    Board.PrintBoard();
+                    Game.Gameplay();
                     break;
 
                 case 2:
