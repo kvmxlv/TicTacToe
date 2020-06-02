@@ -6,10 +6,13 @@ namespace TicTacToe
 {
     public class Board
     {
-        static char[] Array = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        public static char[] Array = { '1', '2', '3', '4', '5', '6', '7', '8', '9' }; //array that stores the players input
+        public static char[] NewArray = { '1', '2', '3', '4', '5', '6', '7', '8', '9' }; //array that resets the game
+
 
         public static void PrintBoard()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Clear();
             Console.WriteLine("  -------------------------");
             Console.WriteLine("  |       |       |       |");
@@ -25,5 +28,6 @@ namespace TicTacToe
             Console.WriteLine("  |       |       |       |");
             Console.WriteLine("  -------------------------");
         }
+
     }
 }
