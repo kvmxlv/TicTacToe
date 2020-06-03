@@ -40,11 +40,11 @@ namespace TicTacToe
             Console.WriteLine("Press any key to display menu");
             Console.ReadKey();
             Console.WriteLine();
-            Menu1();
+            MainMenu();
 
         }
 
-        public static void Menu1()
+        public static void MainMenu()
         {
             Console.Clear();
             Console.WriteLine("                 ╔════════════════════════════════════════════╗      ");
@@ -91,7 +91,7 @@ namespace TicTacToe
                     break;
 
                 case 2:
-                    Menu1();
+                    MainMenu();
                     break;
             }
 

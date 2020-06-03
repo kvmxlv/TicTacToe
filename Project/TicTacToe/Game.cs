@@ -12,12 +12,7 @@ namespace TicTacToe
         public static bool inputOk = true;
         public static char symbol = ' ';
 
-        public static void ResetGame()
-        {
-            Board.Array = Board.NewArray;
-            Board.PrintBoard();
-            turns = 0;
-        }
+        
 
         public static void Gameplay()
         {
@@ -38,6 +33,10 @@ namespace TicTacToe
                
                 Board.PrintBoard();
                 turns++;
+
+                CheckHorizontal();
+                CheckVertical();
+                CheckDiagonal();
 
                 do
                 {
@@ -95,6 +94,194 @@ namespace TicTacToe
             } while (true);
         }
 
+        public static void CheckHorizontal()
+        {
+            char[] symbols = { 'X', 'O' };
+
+            foreach (char symbol in symbols)
+            {
+                if (((Board.Array[0] == symbol) && (Board.Array[1] == symbol) && (Board.Array[2] == symbol)) || ((Board.Array[3] == symbol) && (Board.Array[4] == symbol) && (Board.Array[5] == symbol))|| ((Board.Array[6] == symbol) && (Board.Array[7] == symbol) && (Board.Array[8] == symbol)))
+                {   
+                    
+                    if (symbol == 'X')
+                    {
+                        Console.Clear();
+                        Console.WriteLine("        ============================================        ");
+                        Console.WriteLine("                         <GAME OVER>                        ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                        Player 1 won.                       ");
+                        Console.WriteLine("                 Congratulations, it took you               ");
+                        Console.WriteLine("                 {0} turns to achieve it ! :)", turns        );
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                  <Press a number to choose>                ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                     -1- Play again                         ");
+                        Console.WriteLine("                     -2- Go to main menu                    ");
+                        Console.WriteLine("        ============================================        ");
+
+                    }
+                    else if (symbol == 'O')
+                    {
+                        Console.Clear();
+                        Console.WriteLine("        ============================================        ");
+                        Console.WriteLine("                         <GAME OVER>                        ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                        Player 2 won.                       ");
+                        Console.WriteLine("                 Congratulations, it took you               ");
+                        Console.WriteLine("                 {0} turns to achieve it ! :)", turns);
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                  <Press a number to choose>                ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                     -1- Play again                         ");
+                        Console.WriteLine("                     -2- Go to main menu                    ");
+                        Console.WriteLine("        ============================================        ");
+                    }
+
+                    int choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Board.ResetGame();
+                            break;
+
+                        case 2:
+                            Console.ResetColor();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Menu.MainMenu();
+                            break;
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        public static void CheckVertical()
+        {
+            char[] symbols = { 'X', 'O' };
+
+            foreach (char symbol in symbols)
+            {
+                if (((Board.Array[0] == symbol) && (Board.Array[3] == symbol) && (Board.Array[6] == symbol)) || ((Board.Array[1] == symbol) && (Board.Array[4] == symbol) && (Board.Array[7] == symbol)) || ((Board.Array[2] == symbol) && (Board.Array[5] == symbol) && (Board.Array[8] == symbol)))
+                {
+
+                    if (symbol == 'X')
+                    {
+                        Console.Clear();
+                        Console.WriteLine("        ============================================        ");
+                        Console.WriteLine("                         <GAME OVER>                        ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                        Player 1 won.                       ");
+                        Console.WriteLine("                 Congratulations, it took you               ");
+                        Console.WriteLine("                 {0} turns to achieve it ! :)", turns);
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                  <Press a number to choose>                ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                     -1- Play again                         ");
+                        Console.WriteLine("                     -2- Go to main menu                    ");
+                        Console.WriteLine("        ============================================        ");
+
+                    }
+                    else if (symbol == 'O')
+                    {
+                        Console.Clear();
+                        Console.WriteLine("        ============================================        ");
+                        Console.WriteLine("                         <GAME OVER>                        ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                        Player 2 won.                       ");
+                        Console.WriteLine("                 Congratulations, it took you               ");
+                        Console.WriteLine("                 {0} turns to achieve it ! :)", turns);
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                  <Press a number to choose>                ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                     -1- Play again                         ");
+                        Console.WriteLine("                     -2- Go to main menu                    ");
+                        Console.WriteLine("        ============================================        ");
+                    }
+
+                    int choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Board.ResetGame();
+                            break;
+
+                        case 2:
+                            Console.ResetColor();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Menu.MainMenu();
+                            break;
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        public static void CheckDiagonal()
+        {
+            char[] symbols = { 'X', 'O' };
+
+            foreach (char symbol in symbols)
+            {
+                if (((Board.Array[0] == symbol) && (Board.Array[4] == symbol) && (Board.Array[8] == symbol)) || ((Board.Array[6] == symbol) && (Board.Array[4] == symbol) && (Board.Array[2] == symbol)))
+                {
+
+                        if (symbol == 'X')
+                    {
+                        Console.Clear();
+                        Console.WriteLine("        ============================================        ");
+                        Console.WriteLine("                         <GAME OVER>                        ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                        Player 1 won.                       ");
+                        Console.WriteLine("                 Congratulations, it took you               ");
+                        Console.WriteLine("                 {0} turns to achieve it ! :)", turns);
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                  <Press a number to choose>                ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                     -1- Play again                         ");
+                        Console.WriteLine("                     -2- Go to main menu                    ");
+                        Console.WriteLine("        ============================================        ");
+
+                    }
+                    else if (symbol == 'O')
+                    {
+                        Console.Clear();
+                        Console.WriteLine("        ============================================        ");
+                        Console.WriteLine("                         <GAME OVER>                        ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                        Player 2 won.                       ");
+                        Console.WriteLine("                 Congratulations, it took you               ");
+                        Console.WriteLine("                 {0} turns to achieve it ! :)", turns);
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                  <Press a number to choose>                ");
+                        Console.WriteLine("                                                            ");
+                        Console.WriteLine("                     -1- Play again                         ");
+                        Console.WriteLine("                     -2- Go to main menu                    ");
+                        Console.WriteLine("        ============================================        ");
+                    }
+
+                    int choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Board.ResetGame();
+                            break;
+
+                        case 2:
+                            Console.ResetColor();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Menu.MainMenu();
+                            break;
+                    }
+
+                    break;
+                }
+            }
+        }
 
         public static void WhichSymbol(int player, int input)
         {
