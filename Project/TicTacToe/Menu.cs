@@ -6,6 +6,16 @@ namespace TicTacToe
 {
     public class Menu
     {
+
+        public enum BoardColor
+        {
+            Cyan,
+            Red,
+            Yellow,
+            Green,
+            Magenta
+        }
+
         public static void Title()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -62,7 +72,8 @@ namespace TicTacToe
             switch (choice)
             {
                 case 1:
-                    Game.Gameplay();
+                    ChooseColor();
+                    //Game.Gameplay();
                     break;
 
                 case 2:
@@ -96,5 +107,57 @@ namespace TicTacToe
             }
 
         }
+
+        public static void ChooseColor()
+        {
+            Console.Clear();
+            Console.WriteLine("                  ╔════════════════════════════════════════════╗      ");
+            Console.WriteLine("                  ║    <Before we start choose board color>    ║      ");
+            Console.WriteLine("                  ╚════════════════════════════════════════════╝      ");
+            Console.WriteLine("                  ║          <Press a number to choose>        ║      ");
+            Console.WriteLine("                  ║                                            ║      ");
+            Console.WriteLine($"                  ║                 -1- {BoardColor.Cyan}                   ║      ");
+            Console.WriteLine($"                  ║                 -2- {BoardColor.Red}                    ║      ");
+            Console.WriteLine($"                  ║                 -3- {BoardColor.Yellow}                 ║      ");
+            Console.WriteLine($"                  ║                 -4- {BoardColor.Green}                  ║      ");
+            Console.WriteLine($"                  ║                 -5- {BoardColor.Magenta}                ║      ");
+            Console.WriteLine("                  ╚════════════════════════════════════════════╝      ");
+
+            
+           
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Game.Gameplay();
+                    break;
+
+                case 2:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Game.Gameplay();
+                    break;
+                case 3:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Game.Gameplay();
+                    break;
+                case 4:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Game.Gameplay();
+                    break;
+                case 5:
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Game.Gameplay();
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Game.Gameplay();
+                    break;
+            }
+        }
+            
+        
     }
 }
+

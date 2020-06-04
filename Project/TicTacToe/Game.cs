@@ -12,10 +12,11 @@ namespace TicTacToe
         public static bool inputOk = true;
         public static char symbol = ' ';
 
-        
+
 
         public static void Gameplay()
         {
+            
             do //player 1 starts
             {
                 if (player == 2)
@@ -40,8 +41,6 @@ namespace TicTacToe
 
                 do
                 {
-                    Console.ResetColor();
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine();
                     Console.WriteLine("Player {0} turn ! ", player);
                     Console.WriteLine("Enter position 1-9");
@@ -96,7 +95,10 @@ namespace TicTacToe
 
         public static void CheckHorizontal()
         {
-            char[] symbols = { 'X', 'O' };
+            //char[] symbols = { 'X', 'O' };
+            List<char> symbols = new List<char>();
+            symbols.Add('X');
+            symbols.Add('O');
 
             foreach (char symbol in symbols)
             {
@@ -159,7 +161,10 @@ namespace TicTacToe
 
         public static void CheckVertical()
         {
-            char[] symbols = { 'X', 'O' };
+            //char[] symbols = { 'X', 'O' };
+            List<char> symbols = new List<char>();
+            symbols.Add('X');
+            symbols.Add('O');
 
             foreach (char symbol in symbols)
             {
@@ -222,7 +227,10 @@ namespace TicTacToe
 
         public static void CheckDiagonal()
         {
-            char[] symbols = { 'X', 'O' };
+            //char[] symbols = { 'X', 'O' };
+            List<char> symbols = new List<char>();
+            symbols.Add('X');
+            symbols.Add('O');
 
             foreach (char symbol in symbols)
             {
