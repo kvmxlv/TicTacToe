@@ -11,7 +11,6 @@ namespace TicTacToe
 
         public static void PrintBoard()
         {
-            //Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Clear();
             Console.WriteLine("  -------------------------");
             Console.WriteLine("  |       |       |       |");

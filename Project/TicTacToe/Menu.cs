@@ -19,7 +19,6 @@ namespace TicTacToe
         public static void Title()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            //Console.ResetColor();
 
             string title =
                 @"
@@ -73,11 +72,13 @@ namespace TicTacToe
             {
                 case 1:
                     ChooseColor();
-                    //Game.Gameplay();
                     break;
 
                 case 2:
                     ExitQuestion();
+                    break;
+                default:
+                    TryAgain();
                     break;
             }
         }
@@ -103,6 +104,9 @@ namespace TicTacToe
 
                 case 2:
                     MainMenu();
+                    break;
+                default:
+                    TryAgain();
                     break;
             }
 
@@ -151,10 +155,26 @@ namespace TicTacToe
                     Game.Gameplay();
                     break;
                 default:
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Game.Gameplay();
+                    TryAgain();
                     break;
             }
+        }
+
+        public static void TryAgain()
+        {
+            Console.Clear();
+            Console.WriteLine("                 ╔════════════════════════════════════════════╗      ");
+            Console.WriteLine("                 ║                      OOPS                  ║      ");
+            Console.WriteLine("                 ╚════════════════════════════════════════════╝      ");
+            Console.WriteLine("                 ║        Option not available.               ║      ");
+            Console.WriteLine("                 ║        Choose correct number next time.    ║      ");
+            Console.WriteLine("                 ║        Press any key to try again.         ║      ");
+            Console.WriteLine("                 ╚════════════════════════════════════════════╝      ");
+
+
+            Console.ReadKey();
+            MainMenu();
+        
         }
             
         

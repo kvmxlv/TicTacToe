@@ -8,9 +8,9 @@ namespace TicTacToe
     {
         static void Main(string[] args)
         {
-
+            
             Menu.Title();
-
+            //start game
         }
     }
 }

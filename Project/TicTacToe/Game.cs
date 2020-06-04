@@ -14,9 +14,9 @@ namespace TicTacToe
 
 
 
-        public static void Gameplay()
+        public static void Gameplay() 
         {
-            
+
             do //player 1 starts
             {
                 if (player == 2)
@@ -35,16 +35,33 @@ namespace TicTacToe
                 Board.PrintBoard();
                 turns++;
 
+
+                //check if someone won the game
                 CheckHorizontal();
                 CheckVertical();
                 CheckDiagonal();
 
-                do
+
+                if (turns > 9)
+                {
+                    EndGame();
+                }
+
+                    do
                 {
                     Console.WriteLine();
                     Console.WriteLine("Player {0} turn ! ", player);
                     Console.WriteLine("Enter position 1-9");
-                    input = Convert.ToInt32(Console.ReadLine());
+
+                    try
+                    {
+                        input = Convert.ToInt32(Console.ReadLine());
+                    } 
+                    catch
+                    {
+                        Console.WriteLine("Hey, it's not a number ! I said enter 1-9, try again.");
+                    }
+
 
                     if ((input == 1) && (Board.Array[0] == '1'))
                     {
@@ -95,7 +112,6 @@ namespace TicTacToe
 
         public static void CheckHorizontal()
         {
-            //char[] symbols = { 'X', 'O' };
             List<char> symbols = new List<char>();
             symbols.Add('X');
             symbols.Add('O');
@@ -148,6 +164,7 @@ namespace TicTacToe
                             break;
 
                         case 2:
+                            Board.ResetGame();
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.Green;
                             Menu.MainMenu();
@@ -161,7 +178,6 @@ namespace TicTacToe
 
         public static void CheckVertical()
         {
-            //char[] symbols = { 'X', 'O' };
             List<char> symbols = new List<char>();
             symbols.Add('X');
             symbols.Add('O');
@@ -214,6 +230,7 @@ namespace TicTacToe
                             break;
 
                         case 2:
+                            Board.ResetGame();
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.Green;
                             Menu.MainMenu();
@@ -227,7 +244,6 @@ namespace TicTacToe
 
         public static void CheckDiagonal()
         {
-            //char[] symbols = { 'X', 'O' };
             List<char> symbols = new List<char>();
             symbols.Add('X');
             symbols.Add('O');
@@ -280,6 +296,7 @@ namespace TicTacToe
                             break;
 
                         case 2:
+                            Board.ResetGame();
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.Green;
                             Menu.MainMenu();
@@ -293,7 +310,7 @@ namespace TicTacToe
 
         public static void WhichSymbol(int player, int input)
         {
-            
+            //check if player X or O takes turn
 
             if (player == 1)
             {
@@ -336,6 +353,40 @@ namespace TicTacToe
                     break;
             }
         }
+
+        public static void EndGame()
+        { 
+                //method is called when there is more than 9 turns, it ends game without any winner
+
+                Console.Clear();
+                Console.WriteLine("        ============================================        ");
+                Console.WriteLine("                         <GAME OVER>                        ");
+                Console.WriteLine("                                                            ");
+                Console.WriteLine("                 It's a {0}th turn already,", turns);                 
+                Console.WriteLine("                 sorry, you cannot play more than 9.        ");
+                Console.WriteLine("                                                            ");
+                Console.WriteLine("                  <Press a number to choose>                ");
+                Console.WriteLine("                                                            ");
+                Console.WriteLine("                     -1- Play again                         ");
+                Console.WriteLine("                     -2- Go to main menu                    ");
+                Console.WriteLine("        ============================================        ");
+            
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Board.ResetGame();
+                    break;
+
+                case 2:
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Menu.MainMenu();
+                    break;
+            } 
+        } 
 
 
 
